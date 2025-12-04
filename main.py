@@ -16,12 +16,15 @@ def main():
     senha = input('Senha:')
 
 
-    comando = f"""select email from usuarios where email = '{email}' and senha = '{senha}';"""
+    comando = f"""select nome, email, senha from usuarios where email = '{email}' and senha = '{senha}';"""
     cursor.execute(comando)
     resultado = cursor.fetchone()
 
+    
+
     if resultado:
-        print('Login efetuado com sucesso!')
+        print('Login efetuado com sucesso!\n')
+        print(f'Bem vindo ADM {resultado[0]}\n')
         print('carregando...')
         time.sleep(5)
         os.system('cls')
@@ -35,6 +38,7 @@ def main():
 
 
     while True:
+        print(f'ADMINISTRADOR: {resultado[0]}\n')
         print('--------CADASTRO DE USUARIOS-----------\n')
         print('Selecione uma opção \n')
         print('(1) cadastrar usuário'.title())
