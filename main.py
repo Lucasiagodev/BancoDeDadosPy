@@ -2,10 +2,36 @@
 from cadastro_pessoas import cadastro_usuarios
 from listar_usuariosb import listar_usuarios
 from atualizar_usuario import atualiza_usuario
+from pessoasDB import conexao_banco_dados
+import time
 import os
 
 def main():
+
+    banco = conexao_banco_dados()
+    cursor = banco.cursor()
     
+    print('-------------Aréa de login-----------'.upper())
+    email = input('Email:')
+    senha = input('Senha:')
+
+
+    comando = f"""select email from usuarios where email = '{email}' and senha = '{senha}';"""
+    cursor.execute(comando)
+    resultado = cursor.fetchone()
+
+    if resultado:
+        print('Login efetuado com sucesso!')
+        print('carregando...')
+        time.sleep(5)
+        os.system('cls')
+
+    else: 
+        print('Usuário ou senha icorretos')
+        exit()
+
+    cursor.close()
+    banco.close()
 
 
     while True:

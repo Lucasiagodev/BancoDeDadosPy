@@ -25,7 +25,7 @@ def listar_usuarios():
                 print(f'ID: {linha[0]} | NOME: {linha[1]} IDADE: {linha[2]} EMAIL: {linha[3]} SENHA: {linha[4]}')
               
 
-    sair = input('Tetle [enter] para voltar: ')
+    sair = input('Tecle [enter] para voltar: ')
     banco.close()
     cursor.close()
 
