@@ -3,11 +3,11 @@ from cadastro_pessoas import cadastro_usuarios
 from listar_usuariosb import listar_usuarios
 from atualizar_usuario import atualiza_usuario
 from pessoasDB import conexao_banco_dados
-import time
+from reload import reload
 import os
 
 def main():
-
+    
     banco = conexao_banco_dados()
     cursor = banco.cursor()
     
@@ -25,8 +25,9 @@ def main():
     if resultado:
         print('Login efetuado com sucesso!\n')
         print(f'Bem vindo ADM {resultado[0]}\n')
-        print('carregando...')
-        time.sleep(5)
+        os.system('cls')
+        print('Carregando!', flush=True)
+        reload()  # animação roda agora
         os.system('cls')
 
     else: 
