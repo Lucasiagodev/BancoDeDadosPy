@@ -1,7 +1,8 @@
+# pessoasDB.py
 import mysql.connector
 from mysql.connector import errorcode
 
-def conexao_banco_dados():
+def conexao_banco_dados():   # Linha 1
     try:
         conectar = mysql.connector.connect(
             user='root',
@@ -21,9 +22,7 @@ def conexao_banco_dados():
             print(err)
         return None
     else:
-        print('conectado com sucesso')
         return conectar
-
 
 
 
